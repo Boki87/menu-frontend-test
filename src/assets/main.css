@@ -21,7 +21,8 @@ html {
     --color-black-80: #171717;
     --color-black-60: #333333;
     --color-black-40: #737373;
-   
     --color-primary: #FF6600;
+   
+    --header-height: 60px;
 }
 

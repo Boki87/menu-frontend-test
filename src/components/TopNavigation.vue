@@ -1,6 +1,3 @@
-
-import type ButtonVue from './Button.vue';
-
 <template>
    <nav>
         <div class="nav_brand">
@@ -34,7 +31,7 @@ export default defineComponent({
 <style scoped lang="scss">
 nav {
     display: flex; 
-    height: 60px;
+    height: var(--header-height);
     width: 100%;
     align-items: center;
     justify-content: space-between;
