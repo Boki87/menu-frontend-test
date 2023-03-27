@@ -41,7 +41,7 @@ export default defineComponent({
 <style lang="scss">
    .sidebar_item {
       width: 100%; 
-      height: 2rem;
+      height: 2.5rem;
       border-radius: var(--radius-sm);
       background: transparent;
       border: none;
@@ -65,6 +65,14 @@ export default defineComponent({
       span {
          color: var(--color-black-100);
       } 
+
+      @media screen and (max-width: 950px) {
+         padding: 0px 8px;
+         justify-content: center;
+         span {
+            display: none;
+         }  
+      }
    } 
   
    .sidebar_item__active {

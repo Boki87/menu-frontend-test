@@ -4,15 +4,27 @@
       v-for="item in items" 
       :item="item"
       :key="item.title" /> 
+
+      <div style="flex: 1;"></div>
+
+      <Button @click="signOut" style="width: 100%;">
+        <div class="sidebar__signout_button">
+            <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
+            <span>Sign out</span> 
+        </div> 
+      </Button>
    </div> 
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
 import SidebarItem from './SidebarItem.vue';
+import Button from '../Button.vue';
+import { authService } from '@/utils/api';
 
 export default defineComponent({
   components: {
-   SidebarItem
+   SidebarItem,
+   Button
   },
 
   data() {
@@ -51,6 +63,13 @@ export default defineComponent({
          
       ] 
    }
+  },
+  methods: {
+   signOut() {
+         this.$store.dispatch('auth/logout').then(() => {
+            this.$router.push('/login') 
+         })
+   }
   } 
 })
 </script>
@@ -59,5 +78,30 @@ export default defineComponent({
        width: 256px;     
        background: #F2F2F2; 
        padding: 12px;
+       display: flex;
+       flex-direction: column;
+       @media screen and (max-width: 950px) {
+         width: 50px; 
+         padding: 8px;
+       }
+    }
+    .sidebar__signout_button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+         transform: rotate(180deg);
+         margin-right: 10px; 
+      }
+
+      @media screen and (max-width:950px) {
+         svg {
+            margin: 0px;
+         }
+         span {
+            display: none;
+         }
+      }
     }
 </style>

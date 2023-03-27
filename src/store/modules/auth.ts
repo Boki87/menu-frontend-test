@@ -41,7 +41,9 @@ const AuthModule: Module<AuthState, {}> = {
         });
     },
     logout(context) {
-      context.commit("LOGOUT");
+      return authService.logout().then(() => {
+        context.commit("LOGOUT");
+      });
     },
   },
   getters: {

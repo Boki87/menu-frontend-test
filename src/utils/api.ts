@@ -19,6 +19,9 @@ class AuthService {
 
   logout() {
     localStorage.removeItem("menu-user");
+    return new Promise((res, rej) => {
+      return res(true);
+    });
   }
 }
 

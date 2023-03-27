@@ -19,6 +19,8 @@ import {
   faPlus,
   faMagnifyingGlass,
   faTrashCan,
+  faTimes,
+  faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -34,7 +36,9 @@ library.add(
   faGear,
   faPlus,
   faMagnifyingGlass,
-  faTrashCan
+  faTrashCan,
+  faTimes,
+  faArrowRightFromBracket
 );
 
 const app = createApp(App);

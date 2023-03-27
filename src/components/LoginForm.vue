@@ -12,6 +12,7 @@
                     placeholder="Your email address" 
                     type="email"
                    required 
+                  style="margin-bottom: var(--margin-sm);" 
                 />
 
                 <Input 
@@ -19,6 +20,7 @@
                     placeholder="Password" 
                     type="password"
                     required
+                  style="margin-bottom: var(--margin-sm);" 
                 />
             
                 <Button 
@@ -90,4 +92,6 @@ export default defineComponent({
         font-size: 1rem; 
        color: var(--color-black-60); 
     }
+
+
 </style>

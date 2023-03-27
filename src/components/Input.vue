@@ -13,6 +13,7 @@
             :required="required" 
             v-bind="$attrs"
             :style="{paddingLeft: hasIcon ? '34px' : '13px'}"
+            :class="{'input__error': error}"
         /> 
     </div>
 </template>
@@ -27,6 +28,10 @@ export default defineComponent({
             default: false
         },
         leftIcon: {
+            type: Boolean,
+            default: false
+        },
+        error: {
             type: Boolean,
             default: false
         }
@@ -56,13 +61,20 @@ export default defineComponent({
         outline: none; 
         font-size: 0.8rem;
         &:focus {
-            border: 2px solid var(--color-primary);
+            border: 2px solid var(--color-primary-2);
         }
     }
+   
+    .input__error {
+       border: 2px solid red; 
+        &:focus {
+            border: 2px solid red; 
+        }
+    } 
+
     .input_container {
        position: relative; 
        height: 34px;
-       margin-bottom: var(--margin-sm);
     }
     .input_container__left_icon {
         position: absolute; 

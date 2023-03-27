@@ -31,10 +31,11 @@ export default defineComponent({
    display: flex;
    width: 100%; 
    height: calc(100% - var(--header-height)); 
-  
+   overflow: hidden;
    main {
       flex: 1;
       background: #fff;
+      overflow-x: hidden; 
    }
 }
 </style>

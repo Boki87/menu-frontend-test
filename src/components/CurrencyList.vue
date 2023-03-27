@@ -12,13 +12,17 @@
                     CURRENCY SYMBOL
                 </div>
         </div>
+        
+        <div class="currency_list__no_currency" v-if="currencies.length === 0">
+            {{filterQuery !== "" ? 'No matches' : 'There are no currencies added'}}
+        </div>
 
         <div 
             v-for="currency in currencies"
             class="currency_list__hover"
             :key="currency.ID"
         >
-            <div class="currency_list__row">
+            <div @click="openCurrency(currency.ID)" class="currency_list__row">
                     <div class="currency_list__col_full">
                         {{ currency.title }}
                     </div>  
@@ -31,7 +35,7 @@
             </div>
             
         <div class="currency_list__delete_button_container">
-                    <Button variant="ghost"> 
+                    <Button @click="deleteCurrency(currency.ID)" variant="ghost"> 
                         <font-awesome-icon icon="fa-solid fa-trash-can" /> 
                     </Button> 
             </div> 
@@ -50,13 +54,30 @@ export default defineComponent({
     computed: {
         currencies():Currency[] {
             return this.$store.getters["currency/currencies"]
+        },
+        filterQuery():string {
+            return this.$store.getters["currency/filter"]
         } 
+    },
+    methods: {
+       deleteCurrency(ID: number) {
+            this.$store.dispatch('currency/deleteCurrency', ID)
+       },
+       openCurrency(ID:number) {
+            this.$router.push({
+                path: '/',
+                query: {
+                    currency: ID
+                }
+            })
+       }
     }
 })
 </script>
 <style scoped lang="scss">
 .currency_list {
    width: 100%;
+   overflow: auto;
 }
 
 .currency_list__row {
@@ -65,7 +86,7 @@ export default defineComponent({
    height: 39px; 
    display: flex;
    cursor: pointer;
-   border-bottom: 1px solid #ccc;
+   border-bottom: 1px solid var(--border-color-gray);
    &:hover  {
     background-color: rgba(0,0,0,.03); 
    }
@@ -79,6 +100,7 @@ export default defineComponent({
 }
 .currency_list__col_full {
    flex: 1; 
+   min-width: 150px;
    height: 100%;
    display: flex;
    align-items: center;
@@ -87,12 +109,17 @@ export default defineComponent({
 }
 .currency_list__col {
     width: 222px;
+    min-width: 150px;
     height: 100%;
     display: flex;
     align-items: center;
     font-size: 0.9rem;
     color: var(--color-black-40);
     position: relative;
+
+    @media screen and (max-width: 400px) {
+        display: none; 
+    }
 }
 
 .currency_list__header {
@@ -115,5 +142,12 @@ export default defineComponent({
     &:hover {
         background: transparent;
     }
+}
+
+.currency_list__no_currency {
+    font-size: 1rem;
+    color: var(--color-black-40);
+    text-align: center;
+    margin-top: 10px;
 }
 </style>

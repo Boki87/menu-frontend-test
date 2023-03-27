@@ -24,7 +24,6 @@
                 </div>
                 <div class="currency_list__container">
                     <CurrencyList /> 
-                   <div style="height: 1000px;"></div> 
                 </div>
             </div>
 
@@ -66,8 +65,8 @@ export default defineComponent({
             path: "/",
             query: {addNew: null}
            }) 
-        }
-    }
+        },
+    },
 })
 </script>
 <style scoped lang="scss">
@@ -81,6 +80,12 @@ export default defineComponent({
    h1 {
     font-size: 1.7rem;
     color: var(--color-black-100); 
+    @media screen and (max-width:500px) {
+        font-size: 1.1rem; 
+    }
+   }
+   @media screen and (max-width: 500px) {
+        margin-bottom: 20px; 
    }
 }
 .currency_search__container {
@@ -90,10 +95,12 @@ export default defineComponent({
 .currency_wrapper {
    display: flex; 
    height: 100%;
-   width: 100%;
+   width:100%;
+   max-width: 100%;
 }
 .currency_left {
     flex: 1;
+    max-width: 100%; 
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -102,7 +109,8 @@ export default defineComponent({
 
 .currency_list__container {
     flex: 1;
-    overflow-y: auto;
+    overflow: auto;
+    width: 100%;
 }
 
 .currency_content {
@@ -113,9 +121,4 @@ export default defineComponent({
     display: flex;
 }
 
-
-.currency_form {
-    min-width: 300px;
-    height: 100%;
-}
 </style>

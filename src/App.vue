@@ -7,6 +7,14 @@ import { RouterView } from 'vue-router'
   <RouterView />
   </div>
 </template>
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+  beforeCreate() {
+   this.$store.commit('currency/INIT_STORE') 
+  }
+})
+</script>
 <style scoped lang="scss">
 .app_wrapper {
   width: 100%;

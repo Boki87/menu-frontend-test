@@ -55,6 +55,9 @@ button {
     pointer-events: none;
     filter: brightness(90%);
    } 
+   @media screen and (max-width: 500px) {
+    font-size: 0.8rem; 
+   }
 }
 
 .primary {
