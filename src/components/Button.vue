@@ -38,11 +38,12 @@ export default defineComponent({
 <style scoped lang="scss">
 button {
     font-size: 1rem;
-    width: 100%; 
+    min-width: 34px;
     height: 34px;
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
+    padding: 0px 12px;
     &:hover {
         filter: brightness(95%);
     }

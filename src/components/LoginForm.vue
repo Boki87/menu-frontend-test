@@ -22,6 +22,7 @@
                 />
             
                 <Button 
+                    style="width:100%"    
                     type="submit"
                     :isLoading="loading" 
                 >

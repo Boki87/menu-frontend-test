@@ -3,12 +3,21 @@ import type { Currency } from "@/types/Currency";
 
 interface CurrencyState {
   currencies: Currency[];
+  filter: string;
 }
 
 const CurrencyModule: Module<CurrencyState, {}> = {
   namespaced: true as true,
   state: {
-    currencies: [],
+    currencies: [
+      {
+        ID: 1,
+        title: "Euro",
+        code: "EUR",
+        symbol: "€",
+      },
+    ],
+    filter: "",
   } as CurrencyState,
   mutations: {
     ["ADD_CURRENCY"](state, currency: Currency) {
@@ -23,8 +32,11 @@ const CurrencyModule: Module<CurrencyState, {}> = {
         }
       });
     },
-    ["DELETE_CURRENCY"](state, id: string) {
+    ["DELETE_CURRENCY"](state, id: number) {
       state.currencies = state.currencies.filter((c) => c.ID !== id);
+    },
+    ["SET_FILTER"](state, query: string) {
+      state.filter = query;
     },
   },
   actions: {
@@ -37,10 +49,23 @@ const CurrencyModule: Module<CurrencyState, {}> = {
     deleteCurrency(context, payload: string) {
       context.commit("DELETE_CURRENCY", payload);
     },
+    setFilter(context, payload: string) {
+      context.commit("SET_FILTER", payload);
+    },
   },
   getters: {
     currencies(state: CurrencyState) {
-      return state.currencies;
+      return state.filter != ""
+        ? state.currencies.filter((c) => {
+            if (
+              c.title.toLowerCase().includes(state.filter.toLowerCase()) ||
+              c.symbol.includes(state.filter) ||
+              c.code.toLowerCase().includes(state.filter)
+            ) {
+              return c;
+            }
+          })
+        : state.currencies;
     },
 
     isUniqueCode(state: CurrencyState, code: string) {

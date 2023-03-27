@@ -3,7 +3,9 @@
       <TopNavigation />
       <div class="layout__content">
          <Sidebar />
-         <slot></slot>
+         <main>
+            <slot></slot>
+         </main>
       </div>
    </div> 
 </template>
@@ -29,5 +31,10 @@ export default defineComponent({
    display: flex;
    width: 100%; 
    height: calc(100% - var(--header-height)); 
+  
+   main {
+      flex: 1;
+      background: #fff;
+   }
 }
 </style>

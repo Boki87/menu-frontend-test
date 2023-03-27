@@ -10,10 +10,32 @@ import {
   faCircleNotch,
   faBell,
   faUser,
+  faChartLine,
+  faTicket,
+  faStar,
+  faMoneyBillTransfer,
+  faPersonBiking,
+  faGear,
+  faPlus,
+  faMagnifyingGlass,
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faCircleNotch, faBell, faUser);
+library.add(
+  faCircleNotch,
+  faBell,
+  faUser,
+  faChartLine,
+  faTicket,
+  faStar,
+  faMoneyBillTransfer,
+  faPersonBiking,
+  faGear,
+  faPlus,
+  faMagnifyingGlass,
+  faTrashCan
+);
 
 const app = createApp(App);
 

@@ -22,7 +22,9 @@ html {
     --color-black-60: #333333;
     --color-black-40: #737373;
     --color-primary: #FF6600;
-   
+    --color-primary-light: rgba(255, 102, 0, .07);
+     
+    --border-color-gray: rgba(0,0,0,.07);
     --header-height: 60px;
 }
 

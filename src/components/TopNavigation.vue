@@ -36,7 +36,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    border-bottom: 1px solid #ccc;
+   border-bottom: 1px solid var(--border-color-gray); 
 }
 .nav_brand {
     display: flex;
