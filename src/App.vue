@@ -11,6 +11,7 @@ import { RouterView } from 'vue-router'
 import { defineComponent } from 'vue';
 export default defineComponent({
   beforeCreate() {
+   //@ts-ignore 
    this.$store.commit('currency/INIT_STORE') 
   }
 })
