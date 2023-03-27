@@ -58,6 +58,7 @@ export default defineComponent({
     methods: {
         queryCurrencies(e: InputEvent) {
             let input = e.target as HTMLInputElement
+            //@ts-ignore
             this.$store.dispatch('currency/setFilter',input.value.toLowerCase())     
         },
         addNewCurrency() {

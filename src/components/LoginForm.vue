@@ -55,6 +55,7 @@ export default defineComponent({
    methods: {
     submitHandler() {
         this.loading = true
+         //@ts-ignore
         this.$store.dispatch("auth/login", {email: this.email, password: this.password}).then(() => {
             this.$router.push("/")
        })

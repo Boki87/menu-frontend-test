@@ -53,14 +53,17 @@ export default defineComponent({
     },
     computed: {
         currencies():Currency[] {
+         //@ts-ignore
             return this.$store.getters["currency/currencies"]
         },
         filterQuery():string {
+         //@ts-ignore
             return this.$store.getters["currency/filter"]
         } 
     },
     methods: {
        deleteCurrency(ID: number) {
+         //@ts-ignore
             this.$store.dispatch('currency/deleteCurrency', ID)
        },
        openCurrency(ID:number) {

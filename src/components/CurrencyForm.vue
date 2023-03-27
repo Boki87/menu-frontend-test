@@ -113,11 +113,14 @@ export default defineComponent({
     },
  
     updateCurrency() {
+      
+      //@ts-ignore
       this.$store.dispatch("currency/updateCurrency", {ID: this.currencyId, title: this.title.trim(), code: this.code, symbol: this.symbol}) 
       this.closeForm()
     }, 
       
     addNew() {
+      //@ts-ignore
       this.$store.dispatch("currency/addCurrency", {title: this.title.trim(), code: this.code, symbol: this.symbol}) 
       this.resetForm()
       this.closeForm()
@@ -164,6 +167,7 @@ export default defineComponent({
             this.codeErrorMessage = "Code must be exactly 3 characters long"
          } else {
             this.codeError = false
+            //@ts-ignore
             this.isCodeUnique = this.$store.getters['currency/isUniqueCode'](newCode, this.currencyId)
             if(!this.isCodeUnique) {
                this.codeErrorMessage = "Currency already exits with same code"
@@ -194,6 +198,7 @@ export default defineComponent({
          handler(newId, oldId) {
                if(newId !== -1) {
                   //populate form  
+                  //@ts-ignore
                   let currency = this.$store.getters["currency/currency"](newId) 
                   if(currency) {
                      this.title = currency.title 

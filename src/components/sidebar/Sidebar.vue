@@ -66,6 +66,7 @@ export default defineComponent({
   },
   methods: {
    signOut() {
+         //@ts-ignore
          this.$store.dispatch('auth/logout').then(() => {
             this.$router.push('/login') 
          })
