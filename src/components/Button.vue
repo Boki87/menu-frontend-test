@@ -1,6 +1,5 @@
 <template>
     <button 
-        @click="click" 
         :disabled="isLoading"
         :class="{
             'primary': variant === 'primary', 
@@ -26,11 +25,6 @@ export default defineComponent({
     isLoading: {
         type: Boolean,
         default: false
-    }
-   },
-   methods: {
-    click() {
-       this.$emit('click') 
     }
    }
 })
