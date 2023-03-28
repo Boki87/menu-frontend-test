@@ -23,10 +23,10 @@
             :key="currency.ID"
         >
             <div @click="openCurrency(currency.ID)" class="currency_list__row">
-                    <div class="currency_list__col_full">
+                    <div class="currency_list__col_full currency_list__name">
                         {{ currency.title }}
                     </div>  
-                    <div class="currency_list__col">
+                    <div class="currency_list__col currency_list__code">
                         {{ currency.code }}
                     </div>
                     <div class="currency_list__col">
@@ -120,9 +120,17 @@ export default defineComponent({
     color: var(--color-black-40);
     position: relative;
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
         display: none; 
     }
+}
+
+.currency_list__code {
+    text-transform: uppercase;
+}
+
+.currency_list__name {
+    text-transform: capitalize;
 }
 
 .currency_list__header {
